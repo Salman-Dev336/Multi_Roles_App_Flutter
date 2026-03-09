@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:multi_roles_app/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,7 +21,9 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             InkWell(
               onTap: () {
-                print('clicked');
+                // print('clicked');
+                Navigator.push(context,
+                 MaterialPageRoute(builder: (context)=> HomeScreen()));
               },
               child: Container(
                 height: 50,
