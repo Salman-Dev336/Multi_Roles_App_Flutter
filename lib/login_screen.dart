@@ -10,6 +10,22 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+
+          Container(
+            height: 50,
+            width: double.infinity,
+            color: Colors.blue,
+            child: Center(
+              child: Text('Click here'),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
