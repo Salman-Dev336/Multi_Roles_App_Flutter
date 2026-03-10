@@ -12,6 +12,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +29,23 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextFormField(
+              controller: emailController,
               decoration: InputDecoration(
                 hintText: 'Email',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
             ),
               SizedBox(height: 20,),
 
               TextFormField(
+                controller: passwordController,
               decoration: InputDecoration(
                 hintText: 'Password',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
             ),
               SizedBox(height: 40,),
