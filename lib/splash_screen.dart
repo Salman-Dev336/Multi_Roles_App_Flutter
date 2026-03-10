@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:multi_roles_app/home_screen.dart';
