@@ -52,7 +52,9 @@ class _LoginScreenState extends State<LoginScreen> {
             InkWell(
               onTap: () async {
 
-                // SharedPreferences sp = await SharedPreferences.getInstance();
+                SharedPreferences sp = await SharedPreferences.getInstance();
+                sp.setString('email', emailController.text.toString());
+                
                 // sp.setString('name', 'salman');
                 // sp.setInt('age', 25);
                 // // print(sp.getString( 'name'));
