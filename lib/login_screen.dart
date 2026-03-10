@@ -15,6 +15,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Login Screen'),
+        centerTitle: true,
+        backgroundColor: Colors.purpleAccent,
+        automaticallyImplyLeading: false,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -23,16 +29,16 @@ class _LoginScreenState extends State<LoginScreen> {
             InkWell(
               onTap: () async {
 
-                SharedPreferences sp = await SharedPreferences.getInstance();
-                sp.setString('name', 'salman');
-                sp.setInt('age', 25);
+                // SharedPreferences sp = await SharedPreferences.getInstance();
+                // sp.setString('name', 'salman');
+                // sp.setInt('age', 25);
+                // // print(sp.getString( 'name'));
+                // // print(sp.getInt('age').toString());  
+                // sp.remove('name');
                 // print(sp.getString( 'name'));
-                // print(sp.getInt('age').toString());  
-                sp.remove('name');
-                print(sp.getString( 'name'));
-                sp.remove('age');
-                print(sp.getInt('age').toString());
-                // salman();
+                // sp.remove('age');
+                // print(sp.getInt('age').toString());
+                // // salman();
                 // print('clicked');
                 Navigator.push(context,
                  MaterialPageRoute(builder: (context)=> HomeScreen()));
