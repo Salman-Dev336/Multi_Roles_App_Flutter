@@ -26,12 +26,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 SharedPreferences sp = await SharedPreferences.getInstance();
                 sp.setString('name', 'salman');
                 sp.setInt('age', 25);
+                // print(sp.getString( 'name'));
+                // print(sp.getInt('age').toString());  
+                sp.remove('name');
                 print(sp.getString( 'name'));
-                print(sp.getInt('age'));  
+                sp.remove('age');
+                print(sp.getInt('age').toString());
                 // salman();
                 // print('clicked');
-                // Navigator.push(context,
-                //  MaterialPageRoute(builder: (context)=> HomeScreen()));
+                Navigator.push(context,
+                 MaterialPageRoute(builder: (context)=> HomeScreen()));
               },
               child: Container(
                 height: 50,
