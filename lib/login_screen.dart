@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Text('Login Screen'),
         centerTitle: true,
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Colors.blue,
         automaticallyImplyLeading: false,
       ),
       body: Padding(
@@ -26,6 +26,19 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Email',
+              ),
+            ),
+              SizedBox(height: 20,),
+
+              TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Password',
+              ),
+            ),
+              SizedBox(height: 40,),
             InkWell(
               onTap: () async {
 
