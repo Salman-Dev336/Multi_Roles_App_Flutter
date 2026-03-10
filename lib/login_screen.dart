@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             InkWell(
               onTap: () {
+                salman();
                 // print('clicked');
                 Navigator.push(context,
                  MaterialPageRoute(builder: (context)=> HomeScreen()));
@@ -45,4 +46,9 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+}
+Future<void> salman() async{
+  await Future.delayed(Duration(seconds: 5), () {
+    print('hello');
+  });
 }
