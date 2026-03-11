@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:multi_roles_app/home_screen.dart';
+import 'package:multi_roles_app/student_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -54,6 +55,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 SharedPreferences sp = await SharedPreferences.getInstance();
                 sp.setString('email', emailController.text.toString());
+                //admin , student, teacher
+                sp.setString('userType', 'student');
                 // sp.setString('password', passwordController.text.toString());not good to store password in shared preferences
                 
                 sp.setBool('isLogin', true);
@@ -70,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // // salman();
                 // print('clicked');
                 Navigator.push(context,
-                 MaterialPageRoute(builder: (context)=> HomeScreen()));
+                 MaterialPageRoute(builder: (context)=> StudentScreen()));
               },
               child: Container(
                 height: 50,
@@ -81,8 +84,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 child: const Center(
                   child: Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white),
+                    'SignUp',
+                    style: TextStyle(color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
