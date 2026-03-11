@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multi_roles_app/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -39,6 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () async {
           
                   SharedPreferences sp = await SharedPreferences.getInstance();
+                  sp.clear();
                 
           
           
@@ -53,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   // // salman();
                   // print('clicked');
                   Navigator.push(context,
-                   MaterialPageRoute(builder: (context)=> HomeScreen()));
+                   MaterialPageRoute(builder: (context)=> LoginScreen()));
                 },
                 child: Container(
                   height: 50,
