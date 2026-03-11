@@ -12,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  String email = '';
+
   @override
   void initState(){
     super.initState();
@@ -20,8 +22,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   Future<void> loadData() async {
     SharedPreferences sp =  await SharedPreferences.getInstance();
-    String email = sp.getString('email') ?? 'no email';
-    print(email);
+    email = sp.getString('email')?? 'no email';
+    setState(() {
+      
+    });
+    // String email = sp.getString('email') ?? 'no email';
+    // print(email);
   }
   @override
   Widget build(BuildContext context) {
@@ -48,6 +54,30 @@ class _HomeScreenState extends State<HomeScreen> {
           
                 ),
               ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text('Email: ',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
+                  
+                  Text(email.toString(),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
+              
+                  
+                  
+                ],
+
               ),
               SizedBox(height: 40),
               InkWell(
