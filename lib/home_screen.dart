@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:multi_roles_app/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,6 +11,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState(){
+    super.initState();
+    // getData();
+    loadData();
+  }
+  Future<void> loadData() async {
+    SharedPreferences sp =  await SharedPreferences.getInstance();
+    String email = sp.getString('email') ?? 'no email';
+    print(email);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
