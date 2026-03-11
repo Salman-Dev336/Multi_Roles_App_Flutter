@@ -10,8 +10,8 @@ class StudentScreen extends StatefulWidget {
 }
 
 class _StudentScreenState extends State<StudentScreen> {
-  @override
- String email = '';
+  String email = '';
+ String type = '';
 
   @override
   void initState(){
@@ -22,6 +22,7 @@ class _StudentScreenState extends State<StudentScreen> {
   Future<void> loadData() async {
     SharedPreferences sp =  await SharedPreferences.getInstance();
     email = sp.getString('email')?? 'no email';
+    type = sp.getString('userType')?? 'no type';
     setState(() {
       
     });
@@ -54,29 +55,48 @@ class _StudentScreenState extends State<StudentScreen> {
                 ),
               ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Column(
                 children: [
-                  Text('Email: ',
+                  Text('User Type: ',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                   ),
-                  
-                  Text(email.toString(),
+                   Text(type.toString(),
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                   ),
-              
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Email: ',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      ),
+                      
+                      Text(email.toString(),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      ),
+                     
                   
+                      
+                      
+                    ],
                   
+                  ),
                 ],
-
               ),
               SizedBox(height: 40),
               InkWell(
