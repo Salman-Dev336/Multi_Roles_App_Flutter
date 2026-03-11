@@ -54,7 +54,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 SharedPreferences sp = await SharedPreferences.getInstance();
                 sp.setString('email', emailController.text.toString());
+                // sp.setString('password', passwordController.text.toString());not good to store password in shared preferences
                 
+                sp.setBool('isLogin', true);
+
+
                 // sp.setString('name', 'salman');
                 // sp.setInt('age', 25);
                 // // print(sp.getString( 'name'));
@@ -77,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 child: const Center(
                   child: Text(
-                    'Click here',
+                    'Login',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

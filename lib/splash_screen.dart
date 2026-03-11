@@ -1,9 +1,10 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_local_variable, unused_import
 
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:multi_roles_app/home_screen.dart';
 import 'package:multi_roles_app/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -15,10 +16,27 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState(){
     super.initState();
+    isLogin();
 
     Timer(Duration(seconds: 6), () {
       Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
     });
+  }
+
+  void isLogin() async{
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    bool isLogin = sp.getBool('isLogin') ?? false;
+
+    if(isLogin){
+      Timer(Duration(seconds: 5), () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
+      });
+    }
+    else{
+      Timer(Duration(seconds: 5), () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+      });
+    }
   }
 
     
